@@ -67,6 +67,11 @@ class DogPatchClientTests: XCTestCase {
     let mockTask = sut.getDogs { _, _ in } as! MockURLSessionDataTask
     XCTAssertEqual(mockTask.url, getDogsURL)
   }
+  
+  func test_getDogs_callsResumeOnTask() {
+    let mockTask = sut.getDogs { _, _ in } as! MockURLSessionDataTask
+    XCTAssertTrue(mockTask.calledResume)
+  }
 }
 
 class MockURLSession: URLSession {

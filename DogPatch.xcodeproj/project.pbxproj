@@ -14,6 +14,7 @@
 		4213CCA7221738DF0047BA3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4213CCA5221738DF0047BA3D /* Main.storyboard */; };
 		4213CCA9221738E00047BA3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4213CCA8221738E00047BA3D /* Assets.xcassets */; };
 		4213CCAC221738E00047BA3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4213CCAA221738E00047BA3D /* LaunchScreen.storyboard */; };
+		422AEA8F23FB046700D73F3D /* DogPatchClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422AEA8E23FB046700D73F3D /* DogPatchClientTests.swift */; };
 		42335BEF22BD166800E21A72 /* UIView+ApplyShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42335BEE22BD166800E21A72 /* UIView+ApplyShadow.swift */; };
 		42335BF222BD179600E21A72 /* UIView+ApplyShaddowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42335BF122BD179600E21A72 /* UIView+ApplyShaddowTests.swift */; };
 		42335BF822BD1D7A00E21A72 /* UITableViewCell+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42335BF722BD1D7A00E21A72 /* UITableViewCell+Identifier.swift */; };
@@ -44,7 +45,6 @@
 		42D837B322B6CE2D0036C5DD /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D837B222B6CE2D0036C5DD /* Dog.swift */; };
 		42D837BE22B6DAD50036C5DD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D837BD22B6DAD50036C5DD /* User.swift */; };
 		42D837C922B6E80A0036C5DD /* TestLogoNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D837C822B6E80A0036C5DD /* TestLogoNavigationBar.xib */; };
-		85DA64CC23F97D00000C64F5 /* DogPatchClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DA64CB23F97D00000C64F5 /* DogPatchClientTests.swift */; };
 		85DA64CE23F97D6B000C64F5 /* DogPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DA64CD23F97D6B000C64F5 /* DogPatch.swift */; };
 		9581B4AC2316F32D00A78286 /* UIViewController+StoryboardCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581B4AA2316F32D00A78286 /* UIViewController+StoryboardCreatable.swift */; };
 		9581B4AD2316F32D00A78286 /* StoryboardCreatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9581B4AB2316F32D00A78286 /* StoryboardCreatable.swift */; };
@@ -77,6 +77,7 @@
 		4213CCAB221738E00047BA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4213CCAD221738E00047BA3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4213CCB2221738E00047BA3D /* DogPatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogPatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		422AEA8E23FB046700D73F3D /* DogPatchClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogPatchClientTests.swift; sourceTree = "<group>"; };
 		42335BEE22BD166800E21A72 /* UIView+ApplyShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ApplyShadow.swift"; sourceTree = "<group>"; };
 		42335BF122BD179600E21A72 /* UIView+ApplyShaddowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ApplyShaddowTests.swift"; sourceTree = "<group>"; };
 		42335BF722BD1D7A00E21A72 /* UITableViewCell+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Identifier.swift"; sourceTree = "<group>"; };
@@ -108,7 +109,6 @@
 		42D837B222B6CE2D0036C5DD /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		42D837BD22B6DAD50036C5DD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		42D837C822B6E80A0036C5DD /* TestLogoNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TestLogoNavigationBar.xib; path = ../../Cases/Views/TestLogoNavigationBar.xib; sourceTree = "<group>"; };
-		85DA64CB23F97D00000C64F5 /* DogPatchClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPatchClientTests.swift; sourceTree = "<group>"; };
 		85DA64CD23F97D6B000C64F5 /* DogPatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DogPatch.swift; path = DogPatchTests/Cases/Networking/DogPatch.swift; sourceTree = SOURCE_ROOT; };
 		9581B4AA2316F32D00A78286 /* UIViewController+StoryboardCreatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+StoryboardCreatable.swift"; sourceTree = "<group>"; };
 		9581B4AB2316F32D00A78286 /* StoryboardCreatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardCreatable.swift; sourceTree = "<group>"; };
@@ -480,7 +480,7 @@
 		85DA64CA23F97CF3000C64F5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				85DA64CB23F97D00000C64F5 /* DogPatchClientTests.swift */,
+				422AEA8E23FB046700D73F3D /* DogPatchClientTests.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -635,7 +635,7 @@
 				424E578822E0D87200C96D45 /* TimeInterval+Calendar.swift in Sources */,
 				427CCB0622BC72C900F92FF7 /* UIView+NibCreatableTests.swift in Sources */,
 				427CCAFD22BC705600F92FF7 /* TestViewController.swift in Sources */,
-				85DA64CC23F97D00000C64F5 /* DogPatchClientTests.swift in Sources */,
+				422AEA8F23FB046700D73F3D /* DogPatchClientTests.swift in Sources */,
 				420A276522E485C000ECCA13 /* Data+JSONFile.swift in Sources */,
 				4261B59C22D74D1700E5824D /* TestTableViewCell.swift in Sources */,
 				424E576D22E0C23700C96D45 /* UserTests.swift in Sources */,
@@ -793,7 +793,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/DogPatch/Resources/Info.plist";
+				INFOPLIST_FILE = /Users/sherifkamal/Documents/GitHub/NetworkTDD/DogPatch/Resources/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -811,7 +811,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/DogPatch/Resources/Info.plist";
+				INFOPLIST_FILE = /Users/sherifkamal/Documents/GitHub/NetworkTDD/DogPatch/Resources/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
