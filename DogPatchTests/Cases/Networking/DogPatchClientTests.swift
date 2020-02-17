@@ -54,6 +54,20 @@ class DogPatchClientTests: XCTestCase {
     super.tearDown()
   }
 
+  func whenGetGogs(data: Data? = nil, statusCode: Int = 200, error: Error? = nil) -> (calledCompletion: Bool, dogs: [Dog]?, error: Error?) {
+    let response = HTTPURLResponse(url: getDogsURL, statusCode: statusCode, httpVersion: nil, headerFields: nil)
+    var calledCompletion = false
+    var receivedDogs: [Dog]? = nil
+    var receivedError: Error? = nil
+    let mockTask = sut.getDogs { dogs, error in
+      calledCompletion = true
+      receivedError = error as NSError?
+      receivedDogs = dogs
+    } as! MockURLSessionDataTask
+    mockTask.completionHandler(data, response, error)
+    return (calledCompletion, receivedDogs, receivedError)
+  }
+  
   func test_init_sets_baseURL() {
     XCTAssertEqual(sut.baseURL, baseURL)
   }
@@ -73,40 +87,20 @@ class DogPatchClientTests: XCTestCase {
   }
   
   func test_getDogs_givenResponseStatusCode500_callsCompletion() {
-    let response = HTTPURLResponse(url: getDogsURL, statusCode: 500, httpVersion: nil, headerFields: nil)
-    var calledCompletion = false
-    var receivedDogs: [Dog]? = nil
-    var receivedError: Error? = nil
+    let result = whenGetGogs(statusCode: 500)
     
-    let mockTask = sut.getDogs { dogs, error in
-      calledCompletion = true
-      receivedDogs = dogs
-      receivedError = error
-    } as! MockURLSessionDataTask
-    
-    mockTask.completionHandler(nil, response, nil)
-    XCTAssertTrue(calledCompletion)
-    XCTAssertNil(receivedDogs)
-    XCTAssertNil(receivedError)
+    XCTAssertTrue(result.calledCompletion)
+    XCTAssertNil(result.dogs)
+    XCTAssertNil(result.error)
   }
   
   func test_getDogs_givenError_callsCompletionWithError() throws {
-    let response = HTTPURLResponse(url: getDogsURL, statusCode: 200, httpVersion: nil, headerFields: nil)
     let expectedError = NSError(domain: "com.DogPatchTests", code: 42)
-    var calledCompletion = false
-    var receivedDogs: [Dog]? = nil
-    var receivedError: Error? = nil
+    let result = whenGetGogs(error: expectedError)
+    XCTAssertTrue(result.calledCompletion)
+    XCTAssertNil(result.dogs)
     
-    let mockTask = sut.getDogs { dogs, error in
-      calledCompletion = true
-      receivedDogs = dogs
-      receivedError = error as NSError?
-    } as! MockURLSessionDataTask
-    mockTask.completionHandler(nil, response, expectedError) 
-    XCTAssertTrue(calledCompletion)
-    XCTAssertNil(receivedDogs)
-    
-    let actualError = try XCTUnwrap(receivedError as NSError?)
+    let actualError = try XCTUnwrap(result.error as NSError?)
     XCTAssertEqual(actualError, expectedError)
   }
 }
