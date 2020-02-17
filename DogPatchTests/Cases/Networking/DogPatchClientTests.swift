@@ -113,6 +113,24 @@ class DogPatchClientTests: XCTestCase {
     XCTAssertEqual(result.dogs, dogs)
     XCTAssertNil(result.error)
   }
+  
+  func test_getDogs_givenInvalidJSON_callsCompletionWithError() throws {
+    let data = try Data.fromJSON(
+    fileName: "GET_Dogs_MissingValuesResponse")
+    var expectedError: NSError!
+    let decoder = JSONDecoder()
+    do {
+      _ = try decoder.decode([Dog].self, from: data)
+    } catch {
+      expectedError = error as? NSError
+    }
+    let result = whenGetGogs(data: data)
+    XCTAssertTrue(result.calledCompletion)
+    XCTAssertNil(result.dogs)
+    let actualError = try XCTUnwrap(result.error as NSError?)
+    XCTAssertEqual(actualError.domain, expectedError.domain)
+    XCTAssertEqual(actualError.code, expectedError.code)
+  }
 }
 
 class MockURLSession: URLSession {
