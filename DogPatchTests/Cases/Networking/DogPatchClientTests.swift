@@ -63,7 +63,6 @@ class DogPatchClientTests: XCTestCase {
   }
   
   func test_getDogs_callsExpectedURL() {
-    let getDogsURL = URL(string: "dogs", relativeTo: baseURL)!
     let mockTask = sut.getDogs { _, _ in } as! MockURLSessionDataTask
     XCTAssertEqual(mockTask.url, getDogsURL)
   }
@@ -74,7 +73,6 @@ class DogPatchClientTests: XCTestCase {
   }
   
   func test_getDogs_givenResponseStatusCode500_callsCompletion() {
-    let getDogsURL = URL(string: "dogs", relativeTo: baseURL)!
     let response = HTTPURLResponse(url: getDogsURL, statusCode: 500, httpVersion: nil, headerFields: nil)
     var calledCompletion = false
     var receivedDogs: [Dog]? = nil
@@ -90,6 +88,26 @@ class DogPatchClientTests: XCTestCase {
     XCTAssertTrue(calledCompletion)
     XCTAssertNil(receivedDogs)
     XCTAssertNil(receivedError)
+  }
+  
+  func test_getDogs_givenError_callsCompletionWithError() throws {
+    let response = HTTPURLResponse(url: getDogsURL, statusCode: 200, httpVersion: nil, headerFields: nil)
+    let expectedError = NSError(domain: "com.DogPatchTests", code: 42)
+    var calledCompletion = false
+    var receivedDogs: [Dog]? = nil
+    var receivedError: Error? = nil
+    
+    let mockTask = sut.getDogs { dogs, error in
+      calledCompletion = true
+      receivedDogs = dogs
+      receivedError = error as NSError?
+    } as! MockURLSessionDataTask
+    mockTask.completionHandler(nil, response, expectedError) 
+    XCTAssertTrue(calledCompletion)
+    XCTAssertNil(receivedDogs)
+    
+    let actualError = try XCTUnwrap(receivedError as NSError?)
+    XCTAssertEqual(actualError, expectedError)
   }
 }
 
